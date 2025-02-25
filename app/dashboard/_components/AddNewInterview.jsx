@@ -16,6 +16,7 @@ import { MockMate } from "@/utils/schema";
 import { v4 as uuidv4 } from "uuid";
 import { useUser } from "@clerk/nextjs";
 import moment from "moment/moment";
+import { useRouter } from "next/navigation";
 
 function AddNewInterview() {
     const [openDialog, setOpenDialog] = useState(false);
@@ -25,6 +26,7 @@ function AddNewInterview() {
     const [loading, setLoading] = useState(false);
     const [JsonResponse, setJsonResponse] = useState([]);
     const { user } = useUser();
+    const router = useRouter();
 
     const onSubmit = async (e) => {
         setLoading(true);
@@ -36,8 +38,7 @@ function AddNewInterview() {
         const result = await chatSession.sendMessage(InputPrompt);
         const MockJsonResp = (result.response.text()).replace('```json', '').replace('```', '');
 
-        console.log(JSON.parse(MockJsonResp));
-        setJsonResponse(MockJsonResp);
+        setJsonResponse(JSON.parse(MockJsonResp));
         if (MockJsonResp) {
             const resp = await db.insert(MockMate).values({
                 mockId: uuidv4(),
@@ -49,9 +50,12 @@ function AddNewInterview() {
                 createdAt: moment().format("DD-MM-yyyy"),
             }).returning({ mockId: MockMate.mockId })
             console.log("Insert ID:", resp);
+            if(resp){
+                setOpenDialog(false);
+                router.push('/dashboard/interview/'+resp[0]?.mockId)
+            }
         } else {
             console.log("Error");
-
         }
         setLoading(false);
     }
