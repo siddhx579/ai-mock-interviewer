@@ -1,29 +1,38 @@
+"use client";
 import Image from "next/image";
 import Header from "./dashboard/_components/Header";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div>
-      <div className="main-container relative bg-black w-screen h-screen overflow-hidden">
-        <div className="blur-circle1 absolute left-[10%] top-[20%] w-[200px] h-[200px] bg-gradient-to-b from-white to-pink rounded-full blur-[120px]"></div>
-        <div className="blur-circle2 absolute right-[10%] top-[20%] w-[200px] h-[200px] bg-gradient-to-b from-white to-pink rounded-full blur-[100px]"></div>
-        <div className="landing-page"></div>
+      <div>
         <Header />
-        <div className="content flex items-center justify-between min-h-[calc(100vh-80px)] p-4 container mx-auto md:flex-row flex-col gap-[140px] md:gap-0 md:justify-between">
-          <div className="info w- md:text-left text-center mb-4 md:mb-0">
-            <h1 className="text-[44px] text-gray-400">Prepare for your next Interview</h1>
-            <p className="text-[15px] leading-[1.6] text-gray-400">Practice with mock interviews and receive detailed feedback to understand where you stand.</p>
+        <div className="flex items-center justify-between min-h-[calc(100vh-80px)] p-6 container ml-10 mx-auto md:flex-row flex-col gap-[140px] md:gap-0 md:justify-between">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            transition={{ duration: 0.5 }}
+            className="text-center md:text-left mb-4 md:mb-0"
+          >
+            <h1 className="text-[44px] text-gray-200 font-bold">Prepare for your next Interview</h1>
+            <p className="text-[16px] leading-[1.6] text-gray-300">Practice with mock interviews and receive detailed feedback to understand where you stand.</p>
             <Link href={"/dashboard"}>
-              <Button className="mt-4 px-6 py-6 bg-primary text-white rounded-xl">Get Started</Button>
+              <Button className="mt-4 px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:scale-105 transition-transform duration-100">Get Started</Button>
             </Link>
-          </div>
-          <div className="image">
-            <img className="main-image w-[600px] h-[400px] object-contain" src="https://cdni.iconscout.com/illustration/premium/thumb/businessman-working-using-vr-tech-3840669-3202986.png?f=webp" alt="Main" />
-          </div>
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }} 
+            animate={{ opacity: 1, x: 0 }} 
+            transition={{ duration: 0.5 }}
+            className="image"
+          >
+            <img className="w-[600px] h-[400px] object-contain drop-shadow-lg" src="https://cdni.iconscout.com/illustration/premium/thumb/businessman-working-using-vr-tech-3840669-3202986.png?f=webp" alt="Main" />
+          </motion.div>
         </div>
       </div>
     </div>
   );
-}
+} 
