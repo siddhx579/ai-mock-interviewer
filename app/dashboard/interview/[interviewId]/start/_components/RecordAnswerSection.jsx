@@ -102,7 +102,7 @@ function RecordAnswerSection({ activeQuestionIndex, mockInterviewQuestion, inter
 
     return (
         <div className="flex items-center justify-center flex-col">
-            <div className="flex flex-col mt-20 justify-center items-center bg-black rounded-lg p-5">
+            <div className="flex flex-col mt-1 justify-center items-center bg-black rounded-lg p-5">
                 <Image
                     alt="webcam icon"
                     src={"/webcam.png"}
@@ -119,7 +119,7 @@ function RecordAnswerSection({ activeQuestionIndex, mockInterviewQuestion, inter
                     }}
                 />
             </div>
-            <Button disabled={loading} variant="outline" onClick={StartStopRecording} className="my-10">
+            <Button disabled={loading} variant="outline" onClick={StartStopRecording} className="my-5">
                 {isRecording ? (
                     <h2 className="flex items-center justify-center text-red-600 gap-2">
                         <StopCircle />
