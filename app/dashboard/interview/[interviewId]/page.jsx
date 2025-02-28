@@ -27,10 +27,10 @@ function Interview() {
 
     return (
         <div className='my-10'>
-            <h2 className='font-bold text-2xl'>Let's Get Started</h2>
+            <h2 className='font-bold text-2xl text-white'>Let's Get Started</h2>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
                 <div className='flex flex-col my-5 gap-5'>
-                    <div className='flex flex-col p-5 rounded-lg border gap-5'>
+                    <div className='bg-slate-500 flex flex-col p-5 rounded-lg border gap-5'>
                         <h2>
                             <strong>Job Role/Job Position:</strong> {interviewData?.jobPosition}{" "}
                         </h2>
@@ -42,7 +42,7 @@ function Interview() {
                             <strong>Years of Experience:</strong> {interviewData?.jobExperience}{" "}
                         </h2>
                     </div>
-                    <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-100'>
+                    <div className='p-5 border rounded-lg border-yellow-300 bg-yellow-200'>
                         <h2 className='flex gap-2 items-center text-yellow-500'><Lightbulb /></h2>
                         <h2 className='mt-3 text-justify'>
                             Enable video webcam and microphone to start your AI Generated Mock Interview.
@@ -62,8 +62,8 @@ function Interview() {
                         />
                     ) : (
                         <>
-                            <WebcamIcon className='h-72 w-full my-7 p-20 bg-secondary rounded-lg border' />
-                            <Button variant="ghost" className='w-full' onClick={() => setWebCamEnabled(true)}>
+                            <WebcamIcon className='h-72 w-full my-5 p-20 bg-secondary rounded-lg border' />
+                            <Button variant="ghost" className='w-full bg-slate-300' onClick={() => setWebCamEnabled(true)}>
                                 Enable Web Cam and Microphone
                             </Button>
                         </>
@@ -72,7 +72,7 @@ function Interview() {
             </div>
             <div className='flex justify-end items-end'>
                 <Link href={`/dashboard/interview/${params?.interviewId}/start`}>
-                    <Button>Start Interview</Button>
+                    <Button className='bg-slate-300 hover:bg-slate-100 text-black'>Start Interview</Button>
                 </Link>
             </div>
         </div>

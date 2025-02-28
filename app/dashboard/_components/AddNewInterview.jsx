@@ -63,41 +63,44 @@ function AddNewInterview() {
     return (
         <div>
             <div
-                className="p-10 border rounded-lg bg-secondary hover:scale-105 hover:shadow-md cursor-pointer transition-all"
+                className="p-10 border rounded-lg bg-[#212631] hover:scale-105 hover:shadow-md cursor-pointer transition-all"
                 onClick={() => setOpenDialog(true)}
             >
-                <h2 className="text-lg text-center">+ Add New</h2>
+                <h2 className="text-lg text-white text-center">+ Add New</h2>
             </div>
             <Dialog open={openDialog}>
-                <DialogContent className="max-w-xl">
+                <DialogContent className="bg-[#373F4E] max-w-xl">
                     <DialogHeader>
-                        <DialogTitle className="text-2xl">
+                        <DialogTitle className="text-2xl text-white">
                             Tell us more about your job interviewing
                         </DialogTitle>
-                        <p className="text-sm text-gray-500">
+                        <p className="text-sm text-gray-400">
                             Add details about your job position, description, and years of experience.
                         </p>
                     </DialogHeader>
                     <form onSubmit={onSubmit} className="mt-4">
                         <div className="my-3">
-                            <label className="block text-sm font-medium">Job Role/Job Position</label>
+                            <label className="block text-slate-300 text-sm font-medium mb-2">Job Role/Job Position</label>
                             <Input
+                                className='bg-slate-200'
                                 placeholder="Ex. Full Stack Developer"
                                 required
                                 onChange={(event) => setJobPosition(event.target.value)}
                             />
                         </div>
                         <div className="my-3">
-                            <label className="block text-sm font-medium">Job Description/ Tech Stack (In Short)</label>
+                            <label className="block text-slate-300 text-sm font-medium mb-2">Job Description/ Tech Stack (In Short)</label>
                             <Textarea
+                                className='bg-slate-200'
                                 placeholder="Ex. React, Node.js, MySQL, JavaScript, etc."
                                 required
                                 onChange={(event) => setJobDesc(event.target.value)}
                             />
                         </div>
                         <div className="my-3">
-                            <label className="block text-sm font-medium">Years of Experience</label>
+                            <label className="block text-slate-300 text-sm font-medium mb-2">Years of Experience</label>
                             <Input
+                                className='bg-slate-200'
                                 placeholder="0"
                                 type="number"
                                 max="50"
@@ -106,10 +109,10 @@ function AddNewInterview() {
                             />
                         </div>
                         <div className="flex gap-5 justify-end">
-                            <Button type="button" variant="ghost" onClick={() => setOpenDialog(false)}>
+                            <Button className='bg-slate-400' type="button" variant="ghost" onClick={() => setOpenDialog(false)}>
                                 Cancel
                             </Button>
-                            <Button type="submit" disabled={loading}>
+                            <Button className='bg-slate-300 text-black hover:bg-slate-100' type="submit" disabled={loading}>
                                 {loading ? (
                                     <>
                                         <LoaderCircle className="animate-spin" />Generating from AI

@@ -51,7 +51,7 @@ function StartInterview() {
                     interviewData={interviewData}
                 />
             </div>
-            <div className="flex justify-end gap-6">
+            <div className="flex mb-5 justify-end gap-6">
                 {activeQuestionIndex > 0 && <Button disabled={activeQuestionIndex == 0} onClick={() => setActiveQuestionIndex(activeQuestionIndex - 1)}>Previous Question</Button>}
 
                 {activeQuestionIndex !== mockInterviewQuestion?.length - 1 && <Button onClick={() => setActiveQuestionIndex(activeQuestionIndex + 1)}>Next Question</Button>}
