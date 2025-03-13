@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased relative bg-black min-h-screen overflow-hidden`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased relative bg-black overflow-hidden`}
         >
           {/* Global Gradient Background */}
           <div className="absolute left-[10%] top-[20%] w-[250px] h-[250px] bg-gradient-to-b from-white to-blue-500 rounded-full blur-[150px]"></div>
